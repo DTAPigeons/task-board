@@ -75,7 +75,16 @@ export function logout() {
     localStorage.removeItem('loggedUser');
 }
 
+export function saveUser(userData) {
+    if (userData.id) {
+        return axios.put(`${apiUrl}/users/${userData.id}`, userData);
+    }
+
+    return register(userData);
+    
+}
+
 export function deleteUser(id) {
     //deleteNotesForAuthor(id);
-    return axios.delete(`${apiUrl}/users/${id}`);
+    return axios.delete(`${apiUrl}/${id}`);
 }

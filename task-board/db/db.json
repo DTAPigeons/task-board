@@ -19,15 +19,6 @@
       "id": 2
     },
     {
-      "name": "Дарган Петков",
-      "email": "drag79@abv.bg",
-      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-      "isActive": true,
-      "isAdmin": false,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "id": 3
-    },
-    {
       "name": "Петко Драгонов",
       "email": "Pet79@abv.bg",
       "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
@@ -35,6 +26,24 @@
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": 4
+    },
+    {
+      "name": "Драго Драганов",
+      "email": "drago@gmail.com",
+      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 5
+    },
+    {
+      "name": "Камен Желязков",
+      "email": "kam97@abv.bg",
+      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 6
     }
   ],
   "tasks": []

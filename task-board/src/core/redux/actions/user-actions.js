@@ -1,5 +1,5 @@
-import { getAllUsers, deleteUser } from "../../api/users/users.api"
-import { GET_ALL_USERS, DELETE_USER } from "./action-types";
+import { getAllUsers, deleteUser, saveUser } from "../../api/users/users.api"
+import { GET_ALL_USERS, DELETE_USER, SAVE_USER } from "./action-types";
 
 export function fetchAllUsersFromAPI() {
     return dispatch => {
@@ -21,4 +21,16 @@ export function deleteUserFromAPI(id) {
             })
         });
     }
+}
+
+export function saveUserToAPI(user){
+    return dispatch => {
+        return saveUser(user).then(() => {
+            dispatch({
+                type: SAVE_USER,
+                payload: user
+            });
+        });
+    }
+    
 }
