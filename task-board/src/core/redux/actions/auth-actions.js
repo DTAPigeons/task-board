@@ -1,13 +1,33 @@
-import { register } from "../../api/users/users.api"
-import { SAVE_USER } from "./action-types";
+import { login, logout, getLoggedUser } from "../../api/users/users.api"
+import { LOG_IN_USER, LOG_OUT_USER, GET_LOGGED_USER } from "./action-types";
 
-export function registerUser(user){
+export function logInUser(user){
     return dispatch => {
-        register(user).then(() => {
+        login(user).then(() => {
+            const userData = getLoggedUser();
             dispatch({
-                type: SAVE_USER
+                type: LOG_IN_USER,
+                payload: userData
             });
         });
+    }    
+}
+
+export function logOutUser(){
+    return dispatch=>{
+        logout();
+        dispatch({
+            type: LOG_OUT_USER
+        })
     }
-    
+}
+
+export function fetchLoggedUser(){
+    return dispatch=>{
+        const user = getLoggedUser();
+        dispatch({
+            type: GET_LOGGED_USER,
+            payload: user
+        })
+    }
 }

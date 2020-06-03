@@ -1,4 +1,5 @@
 import { GET_ALL_USERS, DELETE_USER, SAVE_USER } from '../actions/action-types';
+
 const initialState = {
     users: []
 }

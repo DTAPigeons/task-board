@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../register/Register.css';
-import { register } from '../../../core/api/users/users.api';
 import { Redirect, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { saveUserToAPI } from '../../../core/redux/actions/user-actions';

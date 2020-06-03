@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { logout } from '../../../core/api/users/users.api';
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl'
+import { logOutUser } from '../../../core/redux/actions/auth-actions';
 
 const logoutStyle = {
   cursor: 'pointer'
@@ -16,8 +18,10 @@ export function Header(props){
   const [isLoggedOut, setLogoutFlag] = useState(false);
   const [searchParam, setSearchParam] = useState('');
 
+  const dispatch = useDispatch();
+
   const onLogout = (event) => {
-    logout();
+    dispatch(logOutUser());
     setLogoutFlag(true);
   }
 
