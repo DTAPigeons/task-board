@@ -49,12 +49,12 @@ export function Header(props){
       <Nav.Link href="#">Home</Nav.Link>
       <Nav.Link href="#" onClick={onLogout}>Logout</Nav.Link>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#/users">Users</NavDropdown.Item>
-        <NavDropdown.Item href="#/users/create">Create user</NavDropdown.Item>
+        <NavDropdown.Item href="/users">Users</NavDropdown.Item>
+        <NavDropdown.Item href="/users/create">Create user</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#/tasks">All tasks</NavDropdown.Item>       
-        <NavDropdown.Item href="#/tasks/my-tasks">My Tasks</NavDropdown.Item>
-        <NavDropdown.Item href="#/tasks/create">Create Task</NavDropdown.Item>
+        <NavDropdown.Item href="/tasks">All tasks</NavDropdown.Item>       
+        <NavDropdown.Item href="/tasks/my-tasks">My Tasks</NavDropdown.Item>
+        <NavDropdown.Item href="/tasks/create">Create Task</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     <Form inline onSubmit={onSearchClick}>

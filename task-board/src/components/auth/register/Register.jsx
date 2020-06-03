@@ -41,7 +41,7 @@ export class Register extends Component {
     };
 
     render() {
-        //{this.state.isRegistered && <Redirect to="/login" /> }
+        {this.state.isRegistered && <Redirect to="/login" /> }
         return (
             <>
             

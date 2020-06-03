@@ -18,18 +18,18 @@ export async function getAllUsers(params) {
     return allUsers.filter(user => user.name.toLowerCase().includes(lowerParam) || user.email.toLowerCase().includes(lowerParam));
 }
 
-export async function getByid(id){
+export async function getUserByid(id){
     var user = (await axios.get(`${apiUrl}/${id}`)).data[0];
     return user;
 }
 
-export async function getByEmail(email){
+async function getUserByEmail(email){
     var user = (await axios.get(`${apiUrl}/?email=${email}`)).data[0];
     return user;
 }
 
 export async function register(userData){
-    const existingUser = await getByEmail(userData.email);
+    const existingUser = await getUserByEmail(userData.email);
 
     if(existingUser){
         throw new Error('Email already exists!');
@@ -50,7 +50,7 @@ export async function register(userData){
 }
 
 export async function login(userData){
-    const loggedUser = await getByEmail(userData.email); 
+    const loggedUser = await getUserByEmail(userData.email); 
     const attemptedPassword = getHash(userData.password);
 
     if(!loggedUser || loggedUser.password!=attemptedPassword){
@@ -73,4 +73,9 @@ export async function login(userData){
 
 export function logout() {
     localStorage.removeItem('loggedUser');
+}
+
+export function deleteUser(id) {
+    //deleteNotesForAuthor(id);
+    return axios.delete(`${apiUrl}/users/${id}`);
 }
