@@ -1,4 +1,14 @@
 {
-    "users":{},
-    "tasks":{}
+  "users": [
+    {
+      "name": "Павел Павлов",
+      "email": "pev97@abv.bg",
+      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+      "isActive": true,
+      "isAdmin": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 1
+    }
+  ],
+  "tasks": []
 }
