@@ -3,7 +3,7 @@ import { GET_ALL_USERS, DELETE_USER, SAVE_USER, GET_USER_BY_ID } from '../action
 const initialState = {
     users: [],
     selectedUser: {name: '', email: '', password: '', isAdmin: false, isActive: false}
-}
+};
 
 export function usersReducer(state = initialState, action) {
     switch(action.type) {
@@ -12,7 +12,7 @@ export function usersReducer(state = initialState, action) {
         case DELETE_USER: 
             return { ...state, users: state.users.filter(u => u.id !== action.payload )};
         case SAVE_USER:
-            return {...state, users: state.users.push(action.payload)};
+            return {...state, users: state.users.concat([action.payload])};
         case GET_USER_BY_ID:
             return {...state, selectedUser: {...action.payload, password: ''}};
         default: 
