@@ -1,15 +1,13 @@
 import React from 'react';
 import './UserCard.css';
 import { Link } from 'react-router-dom';
-import { getLoggedUser } from '../../../core/api/users/users.api';
+
 
 const cardStyle = {
     width: '18rem'
 };
 
-export function UserCard({ user, onDelete }) {
-    const loggedUser = getLoggedUser();
-
+export function UserCard({ user, onDelete, loggedUser }) {
     return (
         <div className="card m-3" style={cardStyle}>
             <img src={user.picture} alt={user.name} />

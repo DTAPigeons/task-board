@@ -19,11 +19,11 @@ export async function getAllUsers(params) {
 }
 
 export async function getUserByid(id){
-    var user = (await axios.get(`${apiUrl}/${id}`)).data[0];
+    var user = (await axios.get(`${apiUrl}/?id=${id}`)).data[0];
     return user;
 }
 
-async function getUserByEmail(email){
+export async function getUserByEmail(email){
     var user = (await axios.get(`${apiUrl}/?email=${email}`)).data[0];
     return user;
 }
@@ -77,9 +77,16 @@ export function logout() {
 
 export function saveUser(userData) {
     if (userData.id) {
-        return axios.put(`${apiUrl}/users/${userData.id}`, userData);
+        if(userData.password!=''){
+            userData.password = getHash(userData.password);
+        }
+        else {
+            delete userData.password;
+        }
+    
+        return axios.patch(`${apiUrl}/${userData.id}`, userData);
     }
-
+    
     return register(userData);
     
 }

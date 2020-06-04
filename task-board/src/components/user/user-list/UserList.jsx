@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { UserCard } from '../user-card/UserCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllUsersFromAPI, deleteUserFromAPI } from '../../../core/redux/actions/user-actions';
@@ -10,14 +10,12 @@ const usersListStyle = {
 };
 
 export function UsersList(props) {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();   
 
-    
-
-    const currentUser = useSelector(state => state.authReducer.loggedUser);
+    const loggedtUser = useSelector(state => state.authReducer.loggedUser);
 
     console.log(props);
-    
+
     const users = useSelector(state => state.usersReducer.users);
 
     useEffect(() => {
@@ -32,7 +30,7 @@ export function UsersList(props) {
 
     return (
         <div className="users-list d-flex" style={usersListStyle}>
-            {users.map((user) => <UserCard user={user} key={user.id} onDelete={onUserDelete} />)}
+            {users.map((user) => <UserCard user={user} loggedUser={loggedtUser} key={user.id} onDelete={onUserDelete} />)}
         </div>
     );
 }

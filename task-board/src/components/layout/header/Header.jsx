@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
-import { logout } from '../../../core/api/users/users.api';
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
