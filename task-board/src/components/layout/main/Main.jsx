@@ -18,6 +18,7 @@ export function Main(props){
     <AuthenticatedRoute exact path="/users/edit/:id" admin={false} component={UserEdit} />
     <AuthenticatedRoute exact path="/users/create" admin={true} component={UserEdit} />  
     <AuthenticatedRoute exact path="/tasks" component={TaskList} />  
+    <AuthenticatedRoute exact path="/tasks/my-tasks" component={TaskList} myTask={true} />  
     </Switch>
     </div> );
     

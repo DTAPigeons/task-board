@@ -6,3 +6,5 @@ export const LOG_IN_USER = 'LOG_IN_USER';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const GET_LOGGED_USER = 'GET_LOGGED_USER';
 export const GET_ALL_TASKS = 'GET_ALL_TASKS';
+export const GET_TASKS_FOR_USER = 'GET_TASKS_FOR_USER';
+export const DELETE_TASK = 'DELETE_TASK';

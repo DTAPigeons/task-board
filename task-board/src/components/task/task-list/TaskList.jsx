@@ -1,7 +1,7 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTasksFromAPI } from '../../../core/redux/actions/task-actions';
+import { fetchAllTasksFromAPI, fetchAllTasksForUserFromAPI, deleteTaskFromAPI } from '../../../core/redux/actions/task-actions';
 import { fetchLoggedUser } from '../../../core/redux/actions/auth-actions';
 import { TaskCard} from '../task-card/TaskCard';
 
@@ -12,29 +12,38 @@ const listStyles = {
 
 export function TaskList(props) {
     const dispatch = useDispatch();   
+    const [userChecked, setUserChecked] = useState(true);
 
     const loggedUser = useSelector(state => state.authReducer.loggedUser);
     const tasks = useSelector(state=> state.taskReducer.tasks);
 
 
     useEffect(() => {
-        dispatch(fetchAllTasksFromAPI());
         dispatch(fetchLoggedUser());
-    }, [props.location.search, dispatch])
+        if(props.myTask){
+            setUserChecked(false);
+        }
+        else{
+            dispatch(fetchAllTasksFromAPI());
+        }
+        
+    }, [dispatch, setUserChecked])
 
     const onDelete = (id) => {
-        /*
-        deleteNote(id).then(() => {
-            setNotes((prevState) => {
-                return prevState.filter(note => note.id !== id);
-            })
-        })
-        */
+        dispatch(deleteTaskFromAPI(id))
     };
     
+    const checkUser = () => {
+        dispatch(fetchAllTasksForUserFromAPI(loggedUser.id));
+        setUserChecked(true);
+    }
+
     return (
+        <>
+        {!userChecked && checkUser()}
         <div className="notes-list-wrapper d-flex" style={listStyles}>
             { tasks.map(task => <TaskCard task={task} key={task.id} loggedUser = {loggedUser} onDeleteClick={onDelete} /> )}
         </div>
+        </>
     );
 }

@@ -18,14 +18,14 @@ export async function getAllTasks() {
     return setTasks;
 }
 
-export function getTaskById(id) {
-    const task = axios.get(`${apiUrl}/?id=${id}`).data[0];
+export async function getTaskById(id) {
+    const task = (await axios.get(`${apiUrl}/?id=${id}`)).data[0];
     return setAutherNameForTask(task);
 
 }
 
 export async function getTasksByAuthorId(authorId) {
-    const tasks = axios.get(`${apiUrl}/?authorId=${authorId}`).data;
+    const tasks = (await axios.get(`${apiUrl}/?authorId=${authorId}`)).data;
     const setTasks = [];
 
     for(let i=0; i<tasks.length; i++){
@@ -54,7 +54,7 @@ export function saveTask(taskData) {
     return axios.post(`${apiUrl}`, taskData);
 }
 
-export function deleteTasks(id) {
+export function deleteTask(id) {
     return axios.delete(`${apiUrl}/${id}`);
 }
 
@@ -62,7 +62,7 @@ export async function deleteTasksForAuthor(authorId) {
     const notes = await getTasksByAuthorId(authorId);
 
     notes.forEach(note => {
-        deleteTasks(note.id);
+        deleteTask(note.id);
     });
 } 
 
