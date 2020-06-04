@@ -1,5 +1,5 @@
 import axios from 'axios';
-//import { deleteNotesForAuthor } from './notes.api';
+import { deleteTasksForAuthor } from '../tasks/tasks.api';
 import { getHash } from  '../../helpers/cryptoHelper';
 
 const apiUrl = "http://localhost:3005/users";
@@ -92,6 +92,6 @@ export function saveUser(userData) {
 }
 
 export function deleteUser(id) {
-    //deleteNotesForAuthor(id);
+    deleteTasksForAuthor(id);
     return axios.delete(`${apiUrl}/${id}`);
 }

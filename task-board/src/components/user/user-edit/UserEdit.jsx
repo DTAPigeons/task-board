@@ -28,7 +28,7 @@ export function UserEdit(props) {
             setShouldSelectUser(true);
             }).catch((err)=>{setError(err.message)});
         }        
-    }, [props.computedMatch.params.id]);
+    }, [props.computedMatch.params.id, dispatch]);
 
     const onInputChange = (event) => {
         event.persist();
