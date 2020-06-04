@@ -33,7 +33,7 @@ export function TaskCard({ task, onDeleteClick, loggedUser  }) {
     <div className={taskClassByType} style={taskCardStyle}>
         <div className="card-header">
             {task.title}
-            { (loggedUser.isAdmin || loggedUser.id === task.authorId) && <Link to={`/notes/edit/${task.id}`} > Edit </Link> }
+            { (loggedUser.isAdmin || loggedUser.id === task.authorId) && <Link to={`/tasks/edit/${task.id}`} > Edit </Link> }
     { (loggedUser.isAdmin || loggedUser.id === task.authorId) && <span style={deleteBtnStyles} onClick={() => onDeleteClick(task.id)}>Delete</span> }
         </div>
         <div className="card-body">

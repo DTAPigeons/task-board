@@ -8,3 +8,5 @@ export const GET_LOGGED_USER = 'GET_LOGGED_USER';
 export const GET_ALL_TASKS = 'GET_ALL_TASKS';
 export const GET_TASKS_FOR_USER = 'GET_TASKS_FOR_USER';
 export const DELETE_TASK = 'DELETE_TASK';
+export const SAVE_TASK = 'SAVE_TASK';
+export const GET_TASK_BY_ID = 'GET_TASK_BY_ID';

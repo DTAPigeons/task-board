@@ -9,6 +9,7 @@ import { AuthenticatedRoute } from '../../../core/guards/AuthenticatedRoute';
 import { UsersList } from '../../user/user-list/UserList';
 import { UserEdit } from '../../user/user-edit/UserEdit';
 import { TaskList } from '../../task/task-list/TaskList';
+import { TaskEdit} from '../../task/task-edit/TaskEdit';
 
 export function Main(props){
     return(
@@ -17,8 +18,11 @@ export function Main(props){
     <AuthenticatedRoute exact path="/users" component={UsersList} />
     <AuthenticatedRoute exact path="/users/edit/:id" admin={false} component={UserEdit} />
     <AuthenticatedRoute exact path="/users/create" admin={true} component={UserEdit} />  
+
     <AuthenticatedRoute exact path="/tasks" component={TaskList} />  
-    <AuthenticatedRoute exact path="/tasks/my-tasks" component={TaskList} myTask={true} />  
+    <AuthenticatedRoute exact path="/tasks/my-tasks" component={TaskList} myTask={true} /> 
+    <AuthenticatedRoute exact path="/tasks/create" component={TaskEdit} />
+    <AuthenticatedRoute exact path="/tasks/edit/:id" component={TaskEdit} /> 
     </Switch>
     </div> );
     

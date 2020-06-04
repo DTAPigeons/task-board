@@ -37,24 +37,6 @@
       "id": 5
     },
     {
-      "name": "Камен Желязков",
-      "email": "kam97@abv.bg",
-      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-      "isActive": true,
-      "isAdmin": false,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "id": 6
-    },
-    {
-      "name": "Желяско Каменос",
-      "email": "testT@nacepin.bg",
-      "password": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
-      "isActive": true,
-      "isAdmin": false,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "id": 7
-    },
-    {
       "name": "Бате Гойко",
       "email": "azsummuj@gmail.com",
       "password": "8cb2237d0679ca88db6464eac60da96345513964",
@@ -74,12 +56,13 @@
       "status": "Active"
     },
     {
-      "title": "Test 2",
+      "title": "TOTO",
       "content": "kfdsakfhdsjk f",
       "authorId": "1",
       "date": "2020-05-29T09:54:27.529Z",
       "id": 2,
-      "status": "Active"
+      "status": "Pending",
+      "authorName": "Павел Павлов"
     },
     {
       "title": "My first post",
@@ -90,14 +73,6 @@
       "status": "Active"
     },
     {
-      "title": "MY NOTE 2",
-      "content": "admifdsafdsafasdfn@admin.comadmifdsafdsafasdfn@admin.comadmifdsafdsafasdfn@admin.com ",
-      "authorId": "6",
-      "date": "2020-05-29T10:17:14.790Z",
-      "id": 5,
-      "status": "Active"
-    },
-    {
       "title": "Active status",
       "content": "Active stat",
       "authorId": "4",
@@ -105,12 +80,13 @@
       "id": 6
     },
     {
-      "title": "Status",
+      "title": "Stats",
       "content": "rwffdsafsd",
       "authorId": "5",
       "date": "2020-05-29T10:28:37.448Z",
-      "status": "Pending",
-      "id": 7
+      "status": "Done",
+      "id": 7,
+      "authorName": "Драго Драганов"
     },
     {
       "title": "Test 3",
@@ -119,6 +95,30 @@
       "date": "2020-05-29T10:29:33.947Z",
       "status": "Active",
       "id": 8
+    },
+    {
+      "title": "DESTROY ALL HUMANS",
+      "content": "WAAAAAAAAGH!!!",
+      "authorId": 1,
+      "date": "2020-06-04T16:05:11.940Z",
+      "status": "Active",
+      "id": 9
+    },
+    {
+      "title": "ДЖИ-ДЖИ БИ-ДЖИ",
+      "content": "18+",
+      "authorId": 1,
+      "date": "2020-06-04T16:08:32.385Z",
+      "status": "Active",
+      "id": 10
+    },
+    {
+      "title": "Бране на череши",
+      "content": "Кротко си берем череши",
+      "authorId": 1,
+      "date": "Thu Jun 04 2020",
+      "status": "Active",
+      "id": 11
     }
   ]
 }

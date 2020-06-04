@@ -1,5 +1,5 @@
-import { getAllTasks, getTasksByAuthorId, deleteTask } from "../../api/tasks/tasks.api"
-import { GET_ALL_TASKS, GET_TASKS_FOR_USER, DELETE_TASK } from "./action-types";
+import { getAllTasks, getTasksByAuthorId, deleteTask, saveTask, getTaskById } from "../../api/tasks/tasks.api"
+import { GET_ALL_TASKS, GET_TASKS_FOR_USER, DELETE_TASK, SAVE_TASK, GET_TASK_BY_ID } from "./action-types";
 
 export function fetchAllTasksFromAPI() {
     return dispatch => {
@@ -24,6 +24,19 @@ export function fetchAllTasksForUserFromAPI(userId) {
 }
 
 
+export function fetchTaskByIdFromAPI(id){
+    return dispatch => {
+        return getTaskById(id).then((task) => {
+            dispatch({
+                type: GET_TASK_BY_ID,
+                payload: task
+            })
+        })
+    }
+
+}
+
+
 export function deleteTaskFromAPI(id) {
     return dispatch => {
        return deleteTask(id).then(() => {
@@ -33,4 +46,17 @@ export function deleteTaskFromAPI(id) {
                 })
         });
     }
+}
+
+
+export function saveTaskToAPI(task){
+    return dispatch => {
+        return saveTask(task).then(() => {
+                dispatch({
+                    type: SAVE_TASK,
+                    payload: task
+                });
+        });
+    }
+    
 }

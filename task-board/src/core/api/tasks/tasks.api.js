@@ -47,7 +47,7 @@ export function saveTask(taskData) {
     }
 
     taskData.authorId = loggedUser.id;
-    taskData.date = new Date();
+    taskData.date = (new Date()).toDateString();
     if (!taskData.status)
         taskData.status = TaskStatus.Active;
 
@@ -68,6 +68,7 @@ export async function deleteTasksForAuthor(authorId) {
 
 async function setAutherNameForTask(task){    
     const user = await getUserByid(task.authorId);
+    if(!user) {return task;}
     const setTask = { ...task, authorName: user.name };
     return setTask;
 }
