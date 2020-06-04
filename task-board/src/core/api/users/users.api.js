@@ -92,6 +92,10 @@ export function saveUser(userData) {
 }
 
 export function deleteUser(id) {
+    const loggedUser = getLoggedUser();
+    if(loggedUser.id == id){
+        logout();
+    }
     deleteTasksForAuthor(id);
     return axios.delete(`${apiUrl}/${id}`);
 }

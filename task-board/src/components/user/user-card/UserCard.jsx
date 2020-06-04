@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './UserCard.css';
 import { Link } from 'react-router-dom';
 
@@ -19,8 +19,8 @@ export function UserCard({ user, onDelete, loggedUser }) {
                 <li className="list-group-item">Email: {user.email}</li>
             </ul>
             <div className="card-body">
-                { loggedUser.isAdmin && <Link to={`/users/edit/${user.id}`}>Edit</Link> }
-                { loggedUser.isAdmin && <div className="cursor-pointer" onClick={() => onDelete(user.id)}>Delete</div> }
+                { (loggedUser.isAdmin || loggedUser.id == user.id) && <Link to={`/users/edit/${user.id}`}>Edit</Link> }
+                { (loggedUser.isAdmin || loggedUser.id == user.id) && <div className="cursor-pointer" onClick={() => onDelete(user.id)}>Delete</div> }
             </div>
         </div>
     );

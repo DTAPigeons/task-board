@@ -92,10 +92,10 @@ export function UserEdit(props) {
                     <label labelfor="email">Email: </label>
                     <input type="email" name="email" id="email" className="form-control" onChange={onInputChange} value={editedUser.email} />
                 </div>
-                <div className="form-group">
+               { editedUser.id == loggedUser.id && <div className="form-group">
                     <label labelfor="password">Password: </label>
                     <input type="password" name="password" id="password" className="form-control" onChange={onInputChange}  value={editedUser.password} />
-                </div>
+                </div> }
                 <div className="form-group">
                     <label labelfor="isActive">Is Active: </label>
                     <input type="checkbox" name="isActive" id="isActive" className="form-control" onChange={onCheckBoxChange} checked={editedUser.isActive} />
